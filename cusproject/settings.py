@@ -81,6 +81,12 @@ DATABASES = {
     }
 }
 
+if 'DATABASE_URL' in os.environ:
+    import django_heroku
+    django_heroku.settings(locals())
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
