@@ -20,8 +20,16 @@ from CUS import views
 urlpatterns = [
     path('', views.homepage),
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('cusapp/', views.cusapp, name='cusapp'),
     path('add/cusapp/', views.add_cusapp, name='add_cusapp'),
     path('edit/cusapp/<int:id>/', views.edit_cusapp, name='edit_cusapp'),
+=======
+    # path('/add/cusapp/', views.add_cusapp, name='add_cusapp'),
+    # path('/edit/cusapp/<int:id>/', views.edit_cusapp, name='edit_cusapp'),
+    # path('/cusapp/', views.cusapp, name='cusapp'),
+>>>>>>> c64da2b95f6f8df59ac9ea64e1d1c7c5240ae238
     path('maps/', views.maps, name='maps'),
+    path('loginReg/', views.loginReg, name='loginReg'),
+    path('form/', views.form, name='form'),
 ]

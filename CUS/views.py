@@ -29,10 +29,8 @@ def edit_cusapp(request, id=None):
 
 
 def cusapp(request):
-    #cusapp = cusapp.objects.get(id=id)
-    #return render(request, 'cusapp/index.html', {'cusapp': cusapp })
     context = {
-    
+
     }
     return render(request, 'cusapp/index.html', context)
 
