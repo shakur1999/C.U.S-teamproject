@@ -2,11 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import cusform
 from .models import cusapp
 
-# def homepage(request):
-#     context = {
-#
-#     }
-#     return render(request, 'index2.html', context)
+def homepage(request):
+    context = {
+
+    }
+    return render(request, 'cussapp/index2.html', context)
 
 
 def add_cusapp(request):
@@ -28,9 +28,13 @@ def edit_cusapp(request, id=None):
         return render(request, 'cusapp/index.html', {'form': form})
 
 
-def cusapp(request, id=id):
-    cusapp = cusapp.objects.get(id=id)
-    return render(request, 'cusapp/index.html', {'cusapp': cusapp })
+def cusapp(request):
+    #cusapp = cusapp.objects.get(id=id)
+    #return render(request, 'cusapp/index.html', {'cusapp': cusapp })
+    context = {
+    
+    }
+    return render(request, 'cusapp/index.html', context)
 
 def maps(request):
     return render(request, 'cusapp/maps.html', {})
