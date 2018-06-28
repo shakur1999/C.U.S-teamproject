@@ -62,5 +62,10 @@ def maps(request):
         'longitude': longitude,
     }
 
-
     return render(request, 'cussapp/maps.html', context)
+
+def loginReg(request):
+    return render(request, 'cussapp/loginReg.html', {})
+
+def form(request):
+    return render(request, 'cussapp/form.html', {})
