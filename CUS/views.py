@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import cusform
 from .models import cusapp
 
+import math
+import requests
+
 # def homepage(request):
 #     context = {
 #
@@ -33,4 +36,31 @@ def cusapp(request, id=id):
     return render(request, 'cusapp/index.html', {'cusapp': cusapp })
 
 def maps(request):
-    return render(request, 'cusapp/maps.html', {})
+
+    zip = '80301'
+    response = requests.get(f'https://weather.cit.api.here.com/weather/1.0/report.json?product=observation&zipcode={zip}&oneobservation=true&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg')
+    data = response.json()
+    city = data['observations']['location'][0]['observation'][0]['city']
+    state = data['observations']['location'][0]['observation'][0]['state']
+    temperature = data['observations']['location'][0]['observation'][0]['temperature']
+    latitude = data['observations']['location'][0]['latitude']
+    longitude = data['observations']['location'][0]['longitude']
+    fahrenheit = float(temperature) * 9/5+32
+    f = math.ceil(fahrenheit)
+    print(type(data))
+    print(f'City: {city}, {state}' , '\n'
+    f'Temperature: {f}''F'
+    )
+    print(f'Latitude: {latitude}', '\n'
+    f'Longitude: {longitude}')
+
+    context = {
+        'city': city,
+        'state': state,
+        'temperature': f,
+        'latitude': latitude,
+        'longitude': longitude,
+    }
+
+
+    return render(request, 'cussapp/maps.html', context)

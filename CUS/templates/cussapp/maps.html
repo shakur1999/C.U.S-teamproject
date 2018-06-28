@@ -20,11 +20,13 @@
     </style>
   </head>
   <body>
+   <h3>{{ temperature }}</h3>
+    
     <div id="map"></div>
     <script>
       let map;
       function initMap() {
-         const location = {lat: 37.574646, lng: -122.04643};
+         const location = {lat: {{ latitude }}, lng: {{ longitude }} };
         map = new google.maps.Map(document.getElementById('map'), {
           center: location,
           zoom: 12
