@@ -23,5 +23,5 @@ urlpatterns = [
     path('/add/cusapp/', views.add_cusapp, name='add_cusapp'),
     path('/edit/cusapp/<int:id>/', views.edit_cusapp, name='edit_cusapp'),
     path('/cusapp/', views.cusapp, name='cusapp'),
-
+    path('maps/', views.maps, name='maps'),
 ]
