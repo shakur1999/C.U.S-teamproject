@@ -31,3 +31,6 @@ def edit_cusapp(request, id=None):
 def cusapp(request, id=id):
     cusapp = cusapp.objects.get(id=id)
     return render(request, 'cusapp/index.html', {'cusapp': cusapp })
+
+def maps(request):
+    return render(request, 'cusapp/maps.html', {})
