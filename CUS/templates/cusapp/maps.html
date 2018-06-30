@@ -10,8 +10,11 @@
   <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB_iYBuqBvgylXoxKE0XtU-sLbjuqPGJhA'></script>
   <script>
     let map;
+    let bounds;
 
     function initMap() {
+      bounds = new google.maps.LatLngBounds();
+
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
         center: {lat: -34.397, lng: 150.644}
@@ -25,6 +28,10 @@
             map: map,
             position: results[0].geometry.location
           });
+          loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+          bounds.extend(loc);
+          map.fitBounds(bounds);
+          map.panToBounds(bounds);
           console.log(results)
         } else {
           alert('Geocode was not successful for the following reason: ' + status);

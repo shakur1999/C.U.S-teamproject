@@ -1,6 +1,10 @@
 .big-ol-jug {
-  padding: 10px;
-  margin: 5px;
+  padding: 20px;
+  padding-bottom: 40px;
+  margin: 20px;
+  background-color: rgba(255,255,255,0.8);
+  background-blend-mode: lighten;
+  border-radius: 25px;
 }
 
 #map {
@@ -11,4 +15,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-image: url('https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=70316f0ca27349a4840a7c34ee27f001&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb');
+  background-size: cover;
+  background-color: rgba(255,255,255,0.1);
+  background-blend-mode: lighten;
 }
