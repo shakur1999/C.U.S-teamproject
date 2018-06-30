@@ -1,0 +1,37 @@
+{% extends 'cusapp/base.html' %}
+{% block content %}
+  <h3>Welcome to {{ cus.title }}</h3>
+  <p>
+   {{cus.description}}
+  </p>
+
+  <div id="map"></div>
+  <div id="address"><h5>{{cus.location}}</h5></div>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB_iYBuqBvgylXoxKE0XtU-sLbjuqPGJhA'></script>
+  <script>
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: {lat: -34.397, lng: 150.644}
+      });
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode({ 'address': '{{cus.location}}' }, function(results, status) {
+        if (status === 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+          console.log(results)
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+
+    initMap();
+  </script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'cusapp/base.html' %}
+{% block content %}
+<h1>
+  C U Soon!
+</h1>
+
+</br>
+
+<h4> Enter Your Event Details:</h4>
+
+<form method="POST" enctype="multipart/form-data" action="">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+
+  <div class="field_wrapper form-group">
+    {{ form.title.errors }}
+    <label for="{{ form.title.id_for_label }}">Title:</label>
+    {{ form.title }}
+  </div>
+  <div class="field_wrapper form-group">
+    {{ form.description.errors }}
+    <label for="{{ form.description.id_for_label }}">Description:</label>
+    {{ form.description }}
+  </div>
+  <div class="field_wrapper form-group">
+    {{ form.location.errors }}
+    <label for="{{ form.location.id_for_label }}">Location:</label>
+    {{ form.location }}
+  </div>
+  <input type="submit" class="btn btn-primary" value="See Event Page">
+</form>
+
+
+<!-- <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div> -->
+{% endblock %}
