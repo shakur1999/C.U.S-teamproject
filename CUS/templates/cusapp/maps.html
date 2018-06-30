@@ -10,14 +10,14 @@
   <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB_iYBuqBvgylXoxKE0XtU-sLbjuqPGJhA'></script>
   <script>
     let map;
-    let bounds;
+    // let bounds;
 
     function initMap() {
-      bounds = new google.maps.LatLngBounds();
-
+      // bounds = new google.maps.LatLngBounds();
+      const location = {lat: -34.397, lng: 150.644}
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
-        center: {lat: -34.397, lng: 150.644}
+        zoom: 18,
+        center: location
       });
       var geocoder = new google.maps.Geocoder();
 

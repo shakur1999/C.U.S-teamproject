@@ -8,7 +8,7 @@ def add_cusapp(request):
         if form.is_valid():
             cusapp_item = form.save(commit=False)
             cusapp_item.save()
-            return redirect('maps/' + str(cusapp_item.id))
+            return redirect('maps/' + str(cusapp_item.id) )
     else:
         form = cusform()
     return render(request, 'cusapp/index.html', {'form': form})
